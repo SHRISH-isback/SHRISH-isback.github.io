@@ -1,0 +1,143 @@
+/* General Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    overflow: auto;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1b63a2;
+    color: white;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    transition: background 0.3s ease;
+    border-radius: 5px;
+}
+/* General styling for sidebars */
+/* General styling for sidebars */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Increased space between images */
+    position: absolute; /* Allow scrolling with the page */
+    top: 100px; /* Distance from the top of the page */
+}
+
+.sidebar img {
+    width: 150px; /* Increased size */
+    height: 150px; /* Keep it square */
+    object-fit: cover; /* Ensure the image fills the space without distortion */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.3); /* More prominent shadow */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.sidebar img:hover {
+    transform: scale(1.2) rotate(5deg);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Left sidebar */
+.sidebar.left {
+    left: 20px; /* Increased distance from left side */
+}
+
+/* Right sidebar */
+.sidebar.right {
+    right: 20px; /* Increased distance from right side */
+}
+
+
+/* Blog Section */
+.blog-section {
+    max-width: 1000px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.blog-section h2 {
+    font-size: 1.8rem;
+    color: #1b63a2;
+    margin-bottom: 10px;
+}
+
+.blog-content {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.blog-text {
+    flex: 1;
+}
+
+.blog-text p,
+.blog-text ul {
+    margin-bottom: 10px;
+}
+
+.blog-text ul {
+    padding-left: 20px;
+}
+
+.image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .blog-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image {
+        width: 120px;
+        height: 120px;
+    }
+}
