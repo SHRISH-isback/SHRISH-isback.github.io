@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    animation: fadeIn 0.8s ease-in-out;
 }
 
 body {
@@ -11,6 +12,13 @@ body {
     color: #333;
     line-height: 1.6;
     overflow: auto;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Fade-in effect */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Header Styling */
@@ -21,12 +29,19 @@ header {
     background-color: #1b63a2;
     color: white;
     padding: 20px;
+    animation: slideDown 0.8s ease-in-out;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 header h1 {
     font-size: 2rem;
 }
 
+/* Navigation */
 nav ul {
     list-style-type: none;
     display: flex;
@@ -37,43 +52,43 @@ nav ul li a {
     color: white;
     text-decoration: none;
     padding: 8px 12px;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
     border-radius: 5px;
 }
-/* General styling for sidebars */
-/* General styling for sidebars */
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+/* Sidebar Images */
 .sidebar {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Increased space between images */
-    position: absolute; /* Allow scrolling with the page */
-    top: 100px; /* Distance from the top of the page */
+    gap: 20px;
+    position: absolute;
+    top: 100px;
 }
 
 .sidebar img {
-    width: 150px; /* Increased size */
-    height: 150px; /* Keep it square */
-    object-fit: cover; /* Ensure the image fills the space without distortion */
-    border-radius: 12px; /* Rounded corners */
-    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.3); /* More prominent shadow */
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.3);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: slideIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
 .sidebar img:hover {
     transform: scale(1.2) rotate(5deg);
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
 }
-
-/* Left sidebar */
-.sidebar.left {
-    left: 20px; /* Increased distance from left side */
-}
-
-/* Right sidebar */
-.sidebar.right {
-    right: 20px; /* Increased distance from right side */
-}
-
 
 /* Blog Section */
 .blog-section {
@@ -83,61 +98,90 @@ nav ul li a {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: opacity 0.5s ease-in-out;
 }
 
-.blog-section h2 {
-    font-size: 1.8rem;
-    color: #1b63a2;
-    margin-bottom: 10px;
+/* Hover effect on blog */
+.blog-section.hover-effect:not(:hover) {
+    opacity: 0.3;
 }
 
+/* Dark Mode */
+.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.dark-mode header {
+    background-color: #0d47a1;
+}
+
+.dark-mode .blog-section {
+    background: #1e1e1e;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+/* Dark Mode - Sidebar Images */
+.dark-mode .sidebar img {
+    filter: brightness(0.8);
+}
+
+/* Dark Mode - Navigation */
+.dark-mode nav ul li a {
+    color: white;
+}
+
+/* Button Styling */
+.button {
+    padding: 10px 15px;
+    background: linear-gradient(45deg, #1b63a2, #ff4f70);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.button:hover {
+    transform: scale(1.05);
+}
+
+/* Sidebar Fix */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 100px;
+    width: 150px; /* Ensure enough space */
+}
+
+.sidebar.left {
+    left: 20px;
+}
+
+.sidebar.right {
+    right: 20px;
+}
+
+/* Blog Section */
 .blog-content {
     display: flex;
-    gap: 20px;
     align-items: center;
+    gap: 20px;
     flex-wrap: wrap;
 }
 
-.blog-text {
-    flex: 1;
-}
-
-.blog-text p,
-.blog-text ul {
-    margin-bottom: 10px;
-}
-
-.blog-text ul {
-    padding-left: 20px;
-}
-
-.image {
-    width: 150px;
-    height: 150px;
+/* Profile Picture Fix */
+.profile-image {
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .blog-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .image {
-        width: 120px;
-        height: 120px;
-    }
+.profile-image:hover {
+    transform: scale(1.1);
 }

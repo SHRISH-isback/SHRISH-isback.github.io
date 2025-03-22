@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile</title>
+    <title>MY PROFILE</title>
+    <link rel="stylesheet" href="styles/stylesheet.css">
 </head>
-<link rel="stylesheet" href="styles/stylesheet.css">
 <body>
+<main>
     <header>
-        <h1>My Profile</h1>
+        <h1>MY PROFILE</h1>
         <nav>
             <ul>
                 <li><a href="mailto:kadam.shrishk@gmail.com" target="_blank">Contact</a></li>
@@ -17,20 +18,18 @@
             </ul>
         </nav>
     </header>
-</body>
-<div class="sidebar left">
-    <img src="images/p1.png" alt="Image 1">
-    <img src="images/p2.webp" alt="Image 2">
-</div>
-<div class="sidebar right">
-    <img src="images/p3.jpg" alt="Image 3">
-    <img src="images/p4.jpg" alt="Image 4">
-</div>
-<main>
-
+    <div class="sidebar left">
+        <img src="images/p1.png" alt="Image 1">
+        <img src="images/p2.webp" alt="Image 2">
+    </div>
+    <div class="sidebar right">
+        <img src="images/p3.jpg" alt="Image 3">
+        <img src="images/p4.jpg" alt="Image 4">
+    </div>
     <section class="blog-section">
         <h2>Introduction<span class="bold-text"></span></h2>
         <div class="blog-content">
+            <img src="images/Profilepicture.png" alt="Profilepicture" class="profile-image">
             <div class="blog-text">
                 <p>
                     Hi, my name is Shrish Kadam.
@@ -42,7 +41,6 @@
                     </li>
                 </ul>
             </div>
-            <img src="images/Profilepicture.png" alt="Profilepicture" class="image">
         </div>
     </section>
     <section class="blog-section">
@@ -101,4 +99,10 @@
             </div>
         </div>
     </section>
+    <script src="mainscript.js"></script>
 </main>
+</body>
+<footer>
+    <button id="darkModeToggle" class="button">Dark Mode</button>
+</footer>
+</html>
