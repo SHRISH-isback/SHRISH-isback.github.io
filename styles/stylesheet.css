@@ -1,68 +1,97 @@
 /* Enhanced Styling */
+
+/* Fade-in effect */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Space Grotesk', 'Poppins', sans-serif;
     animation: fadeIn 0.8s ease-in-out;
 }
 
 body {
-    background: linear-gradient(135deg, #141e30, #243b55);
+    background: linear-gradient(135deg, #000000, #1a0000);
     color: #fff;
     line-height: 1.8;
     overflow: auto;
     transition: background 0.4s ease, color 0.4s ease;
+    position: relative;
+    z-index: 1;
 }
 
-/* Fade-in effect */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
 }
+        /* Martian-inspired header and navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(139, 0, 0, 0.5);
+            color: white;
+            padding: 20px;
+            border-bottom: 2px solid #ff4500;
+            animation: slideDown 0.8s ease-in-out;
+        }
 
-/* Header Styling */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(27, 99, 162, 0.85);
-    color: white;
-    padding: 20px;
-    border-bottom: 2px solid #ff477e;
-    animation: slideDown 0.8s ease-in-out;
-}
+        header h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ff4500;
+        }
 
-@keyframes slideDown {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+        }
 
-header h1 {
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: color 0.3s ease, transform 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-/* Navigation */
-nav ul {
-    list-style-type: none;
-    display: flex;
-    gap: 20px;
-}
+        nav ul li a:hover {
+            color: #ff4500;
+            transform: scale(1.15);
+        }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    transition: background 0.3s ease, transform 0.3s ease;
-    border-radius: 8px;
-}
+        /* Existing blog section styles with Martian theme */
+        .blog-section {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(255, 69, 0, 0.2);
+            transition: opacity 0.5s ease-in-out;
+        }
 
-nav ul li a:hover {
-    background: #ff477e;
-    transform: scale(1.15);
-}
+        .blog-section h2 {
+            color: #ff4500;
+        }
+
+        /* Additional Martian-themed styles */
+        .main-title {
+            font-size: 4rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: -3px;
+            color: #ff4500;
+            text-shadow: 0 0 20px rgba(255, 69, 0, 0.5);
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
 /* Sidebar Images */
 .sidebar {
@@ -87,21 +116,6 @@ nav ul li a:hover {
     box-shadow: 7px 7px 25px rgba(0, 0, 0, 0.7);
 }
 
-/* Blog Section */
-.blog-section {
-    max-width: 1100px;
-    margin: 40px auto;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-    transition: opacity 0.5s ease-in-out;
-}
-
-/* Hover effect on blog */
-.blog-section.hover-effect:not(:hover) {
-    opacity: 0.4;
-}
 
 /* Dark Mode */
 .dark-mode {
@@ -110,7 +124,7 @@ nav ul li a:hover {
 }
 
 .dark-mode header {
-    background: rgba(13, 71, 161, 0.85);
+    background: rgba(8, 12, 20, 0.85);
 }
 
 .dark-mode .blog-section {
@@ -125,7 +139,7 @@ nav ul li a:hover {
 /* Button Styling */
 .button {
     padding: 12px 20px;
-    background: linear-gradient(45deg, #1b63a2, #ff4f70);
+    background: linear-gradient(45deg, #000000, #ff4f70);
     color: white;
     border: none;
     border-radius: 8px;
@@ -135,7 +149,7 @@ nav ul li a:hover {
 
 .button:hover {
     transform: scale(1.1);
-    background: linear-gradient(45deg, #0b4a8a, #ff2f50);
+    background: linear-gradient(45deg, #03090f, #ff2f50);
 }
 
 /* Sidebar Positioning */
@@ -146,7 +160,21 @@ nav ul li a:hover {
 .sidebar.right {
     right: 20px;
 }
+/* Add to existing stylesheet.css */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
 
+body {
+    position: relative;
+    z-index: 1;
+}
 /* Blog Content */
 .blog-content {
     display: flex;
@@ -169,12 +197,42 @@ nav ul li a:hover {
     transform: scale(1.15);
 }
 
-footer {
-    text-align: center;
-    margin-top: 40px;
+.background-fade-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    z-index: -1;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
-footer .button {
-    padding: 15px 25px;
-    font-size: 1.1rem;
+body {
+    position: relative;
+}
+.footer {
+    background-color: #641010;
+    color: white;
+    text-align: center;
+    padding: 20px 0; /* More padding for spacing */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Arrange items in a column */
+    align-items: center;
+    gap: 10px; /* Adds spacing between elements */
+}
+.footer a {
+    color: #891728; /* Light blue color */
+    text-decoration: none;
+    margin: 0 20px; /* Adds spacing between links */
+    font-size: 18px; /* Increase font size */
+    padding: 5px 10px; /* Adds spacing around links */
+}
+.footer a:hover {
+    text-decoration: underline;
 }
