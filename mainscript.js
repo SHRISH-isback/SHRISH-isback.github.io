@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     typeText();
 
-    // Animate Skill Bars
     const skillBars = document.querySelectorAll(".skill-bar span");
     skillBars.forEach(bar => {
         setTimeout(() => {
