@@ -105,10 +105,14 @@ nav ul li a:hover {
 }
 
 .sidebar img:hover {
-    transform: scale(1.25) rotate(8deg);
+    transform: scale(1.25) translateY(-10px);
     box-shadow: 7px 7px 25px rgba(0, 0, 0, 0.7);
 }
 
+.blog-section:hover {
+    transform: scale(1.03) translateY(-10px);
+    box-shadow: 7px 7px 25px rgba(0, 0, 0, 0.7);
+}
 .dark-mode {
     background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
     color: #e0e0e0;
