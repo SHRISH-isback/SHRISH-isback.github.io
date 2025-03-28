@@ -1,84 +1,98 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const toggleBtn = document.getElementById("darkModeToggle");
-    toggleBtn.addEventListener("click", function () {
-        document.body.classList.toggle("dark-mode");
-        toggleBtn.classList.toggle("active");
-    });
+    const currentPage = window.location.pathname.split("/").pop();
+    if (currentPage === "index.html" || currentPage === "home.html" || currentPage === "") {
+        const particleCanvas = document.createElement("canvas");
+        particleCanvas.id = "particleCanvas"; 
+        document.body.prepend(particleCanvas);
+        const pCtx = particleCanvas.getContext("2d");
 
-    // Typing Effect for Introduction
-    const introText = "Hi, my name is Shrish Kadam. I was born in Thane on 22nd October 2006. I spent my early childhood in Mumbai until I completed 1st grade. After that, I moved to Pune, where I have been living ever since.";
-    let index = 0;
-    const introElement = document.getElementById("intro-text");
-
-    function typeText() {
-        if (index < introText.length) {
-            introElement.innerHTML += introText.charAt(index);
-            index++;
-            setTimeout(typeText, 50);
+        function resizeCanvas() {
+            particleCanvas.width = window.innerWidth;
+            particleCanvas.height = window.innerHeight;
         }
+        resizeCanvas();
+        window.addEventListener("resize", resizeCanvas);
+
+        const particles = [];
+        const numParticles = 150; 
+
+        for (let i = 0; i < numParticles; i++) {
+            particles.push({
+                x: Math.random() * particleCanvas.width,
+                y: Math.random() * particleCanvas.height,
+                size: Math.random() * 3 + 1,
+                speedX: Math.random() * 2 - 1,
+                speedY: Math.random() * 2 - 1,
+                alpha: Math.random() * 0.5 + 0.5
+            });
+        }
+
+        function drawParticles() {
+            pCtx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+            pCtx.fillStyle = "rgba(255, 69, 0, 0.7)";
+            pCtx.shadowBlur = 10;
+            pCtx.shadowColor = "rgba(255, 69, 0, 0.7)";
+
+            for (let particle of particles) {
+                pCtx.beginPath();
+                pCtx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                pCtx.fill();
+            }
+        }
+
+        let mouse = { x: null, y: null, radius: 100 };
+
+        window.addEventListener("mousemove", function (event) {
+            mouse.x = event.x;
+            mouse.y = event.y;
+        });
+
+        function updateParticles() {
+            for (let particle of particles) {
+                let dx = mouse.x - particle.x;
+                let dy = mouse.y - particle.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < mouse.radius) {
+                    let forceX = dx / distance;
+                    let forceY = dy / distance;
+                    particle.x -= forceX * 5;
+                    particle.y -= forceY * 5;
+                }
+
+                particle.x += particle.speedX;
+                particle.y += particle.speedY;
+
+                if (particle.x < 0 || particle.x > particleCanvas.width) particle.speedX *= -1;
+                if (particle.y < 0 || particle.y > particleCanvas.height) particle.speedY *= -1;
+            }
+        }
+
+        window.addEventListener("click", function (event) {
+            for (let i = 0; i < 5; i++) { 
+                particles.push({
+                    x: event.x,
+                    y: event.y,
+                    size: Math.random() * 5 + 2,
+                    speedX: (Math.random() - 0.5) * 4,
+                    speedY: (Math.random() - 0.5) * 4,
+                    alpha: 1
+                });
+            }
+        });
+
+        function animateParticles() {
+            drawParticles();
+            updateParticles();
+            requestAnimationFrame(animateParticles);
+        }
+
+        animateParticles();
+
+        particleCanvas.style.position = "fixed";
+        particleCanvas.style.top = "0";
+        particleCanvas.style.left = "0";
+        particleCanvas.style.zIndex = "-1"; 
+        particleCanvas.style.pointerEvents = "none"; 
     }
-    typeText();
-
-    const skillBars = document.querySelectorAll(".skill-bar span");
-    skillBars.forEach(bar => {
-        setTimeout(() => {
-            bar.style.width = bar.getAttribute("style").split(":")[1];
-        }, 500);
-    });
-
-    // Generate Floating Particles
-    const particlesContainer = document.querySelector(".particles-container");
-    for (let i = 0; i < 20; i++) {
-        let particle = document.createElement("div");
-        particle.classList.add("particle");
-        particle.style.top = `${Math.random() * 100}vh`;
-        particle.style.left = `${Math.random() * 100}vw`;
-        particle.style.animationDuration = `${Math.random() * 3 + 2}s`;
-        particlesContainer.appendChild(particle);
-    }
-    let scene = new THREE.Scene();
-let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-let renderer = new THREE.WebGLRenderer({ alpha: true });
-
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
-
-let molecules = [];
-let geometry = new THREE.SphereGeometry(0.2, 32, 32);
-let material1 = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-let material2 = new THREE.MeshBasicMaterial({ color: 0x0000ff });
-
-function createDNA() {
-    for (let i = 0; i < 100; i++) {
-        let angle = i * 0.2;
-        let x = Math.sin(angle) * 2;
-        let y = i * 0.1 - 5;
-        let z = Math.cos(angle) * 2;
-
-        let ball1 = new THREE.Mesh(geometry, material1);
-        ball1.position.set(x, y, z);
-        scene.add(ball1);
-
-        let ball2 = new THREE.Mesh(geometry, material2);
-        ball2.position.set(-x, y, -z);
-        scene.add(ball2);
-
-        molecules.push(ball1, ball2);
-    }
-}
-
-createDNA();
-camera.position.z = 10;
-
-function animate() {
-    requestAnimationFrame(animate);
-    molecules.forEach((mol, i) => {
-        mol.position.y += Math.sin(i * 0.1 + performance.now() * 0.002) * 0.01;
-    });
-    scene.rotation.y += 0.005; // Rotate the entire scene
-    renderer.render(scene, camera);
-}
-
-animate();
-
 });
