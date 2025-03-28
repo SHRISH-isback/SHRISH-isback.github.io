@@ -135,7 +135,7 @@ nav ul li a:hover {
 .button {
     padding: 10px 15px;
     background: linear-gradient(45deg, #1b63a2, #ff4f70);
-    color: white;
+    color: rgba(255, 255, 255, 0.728);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -187,3 +187,16 @@ nav ul li a:hover {
 }
 
 
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+.particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    animation: float 4s infinite ease-in-out;
+}
