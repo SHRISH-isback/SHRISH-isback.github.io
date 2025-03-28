@@ -3,105 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MY PROFILE</title>
+    <title>MY PROFILE - Home</title>
     <link rel="stylesheet" href="styles/stylesheet.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .martian-section {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(139,0,0,0.8) 100%), url('path/to/martian-background.jpg');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .martian-title {
+            font-size: 10vw;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            color: white;
+            text-transform: uppercase;
+        }
+        .martian-subtitle {
+            color: rgba(255,255,255,0.7);
+            margin-top: 20px;
+            font-size: 1.5vw;
+        }
+        .get-mono-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: orangered;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-<main>
-    <header>
-        <h1 id="intro-text">MY PROFILE</h1>
+    <main>
+        <header>
+        <h1></h1>
         <nav>
             <ul>
-                <li><a href="home.html">Home</a></li>
+                <li><a href="#" class="active">Home</a></li>
                 <li><a href="mailto:kadam.shrishk@gmail.com" target="_blank">Contact</a></li>
                 <li><a href="CV.pdf">Skills</a></li>
-                <li><a href="#" class="active">About</a></li>
+                <li><a href="about.html">About</a></li>
             </ul>
         </nav>
     </header>
-    <div class="sidebar left">
-        <img src="images/p1.png" alt="Image 1">
-        <img src="images/p2.webp" alt="Image 2">
-    </div>
-    <div class="sidebar right">
-        <img src="images/p3.jpg" alt="Image 3">
-        <img src="images/p4.jpg" alt="Image 4">
-    </div>
-    <section class="blog-section">
-        <h2>Introduction<span class="bold-text"></span></h2>
-        <div class="blog-content">
-            <!--<img src="images/Profilepicture.png" alt="Profilepicture" class="profile-image">-->
-            <div class="blog-text">
-                <p>
-                    Hi, my name is Shrish Kadam.
-                    I was born in Thane on 22nd October 2006. I spent my early childhood in Mumbai until I completed 1st grade. After that, I moved to Pune, where I have been living ever since.
-                </p>
-                <ul>
-                    <li>
-                        My hobbies include activities that bring joy and happiness to my life. I enjoy cycling, jogging, mountain trekking, and playing football.
-                    </li>
-                </ul>
+    <section class="martian-section">
+        <div class="martian-content">
+            <div class="martian-title">WELCOME TO MY WORLD</div>
+            <div class="martian-subtitle">
+                EMBRACE THE DARK SIDE
             </div>
         </div>
     </section>
-    <section class="blog-section">
-        <h2>Educational Background<span class="bold-text"></span></h2>
-        <div class="blog-content">
-            <div class="blog-text">
-                <ul>
-                    <ul>
-                        <li>
-                            <strong>Institution:</strong> City International School<br>
-                            <strong>Grade:</strong> 1st to 8th<br>
-                            <strong>Studying Year:</strong> April 2010 – March 2017
-                        </li>
-                        <li>
-                            <strong>Institution:</strong> Sri Chaitanya School<br>
-                            <strong>Grade:</strong> 8th to 10th<br>
-                            <strong>Studying Year:</strong> April 2017 – March 2022
-                        </li>
-                        <li>
-                            <strong>Institution:</strong> Suryadatta National School<br>
-                            <strong>Grade:</strong> 11th to 12th<br>
-                            <strong>Studying Year:</strong> April 2022 – March 2024
-                        </li>
-                        <li>
-                            <strong>Institution:</strong> International Institute of Information Technology, Hyderabad<br>
-                            <strong>Studying Year:</strong> July 2024 – July 2029
-                        </li>
-                    </ul>                    
-                </ul>
-            </div>
-        </div>
-    </section>
-    <section class="blog-section">
-        <h2>Technical Skills<span class="bold-text"></span></h2>
-        <div class="blog-content">
-            <div class="blog-text">
-                <ul>
-                    <ul>
-                        <li>
-                            <strong>Programming:</strong> Python, C, C++, SQL, LaTeX, Assembly
-                        </li>
-                        <li>
-                            <strong>Machine Learning:</strong> TensorFlow, PyTorch, NLP, BPE Tokenization
-                        </li>
-                        <li>
-                            <strong>Cybersecurity:</strong> Buffer Overflow, Reverse Engineering, Web Exploitation
-                        </li>
-                        <li>
-                            <strong>Tools:</strong> Git, Docker, MongoDB, MySQL, Overleaf
-                        </li>
-                        <li>
-                            <strong>Languages:</strong> English, Marathi, Hindi
-                        </li>
-                    </ul>                                       
-                </ul>
-            </div>
-        </div>
-    </section>
-    <script src="mainscript.js"></script>
 </main>
+<script src="mainscript.js" defer></script>
+
 </body>
 <footer class="footer">
     <p>
