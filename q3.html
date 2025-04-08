@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEXT ANALYSER</title>
+    <link rel="stylesheet" href="styles/stylesheet.css">
+  </head>
+  
+  <body>
+    <main>
+      <header>
+        <h1 class="myprofile">MY PROFILE</h1>
+        <nav>
+          <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="mailto:kadam.shrishk@gmail.com" target="_blank">Contact</a></li>
+          <li><a href="pdf_file/CV.pdf">Skills</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="#" class="active">Text Box</a></li>
+        </ul>
+      </nav>
+    </header>
+    <h2>TEXT ANALYZER</h2>
+    <textarea style="background-color: rgb(0, 0, 0);" id="inputText" placeholder="Paste your text here (10,000+ words)..."></textarea><br>
+    <button onclick="analyzeText()">Analyze</button>
+    
+    <h3>Analysis Result:</h3>
+    <pre id="output"></pre>
+
+    <script>
+      function analyzeText() {
+        const text = document.getElementById('inputText').value;
+
+        const letters = (text.match(/[a-zA-Z]/g) || []).length;
+        const words = (text.match(/\b\w+\b/g) || []).length;
+        const spaces = (text.match(/ /g) || []).length;
+        const newlines = (text.match(/\n/g) || []).length;
+        const specialSymbols = (text.match(/[^a-zA-Z0-9\s]/g) || []).length;
+        
+        // Normalize text for tokenization
+        const tokens = text.toLowerCase().match(/\b[\w']+\b/g) || [];
+        
+        const pronouns = ['i', 'you', 'he', 'she', 'it', 'we', 'they', 'me', 'him', 'her', 'us', 'them', 'my', 'your', 'his', 'its', 'our', 'their', 'mine', 'yours', 'hers', 'ours', 'theirs'];
+        const prepositions = ['in', 'on', 'at', 'by', 'with', 'about', 'against', 'between', 'into', 'through', 'during', 'before', 'after', 'above', 'below', 'to', 'from', 'up', 'down', 'of', 'off', 'over', 'under'];
+        const articles = ['a', 'an'];
+        
+        const countGroup = (group, name) => {
+          const counts = {};
+          group.forEach(word => counts[word] = 0);
+          tokens.forEach(token => {
+            if (group.includes(token)) {
+              counts[token]++;
+            }
+          });
+          return counts;
+          };
+          
+        const pronounCounts = countGroup(pronouns, "Pronouns");
+        const prepositionCounts = countGroup(prepositions, "Prepositions");
+        const articleCounts = countGroup(articles, "Articles");
+        
+        const formatCounts = (obj) => {
+          return Object.entries(obj)
+          .filter(([_, count]) => count > 0)
+          .map(([word, count]) => `${word}: ${count}`)
+          .join('\n');
+          };
+          
+          const outputText = `
+        Letters: ${letters}
+        Words: ${words}
+        Spaces: ${spaces}
+        Newlines: ${newlines}
+        Special Symbols: ${specialSymbols}
+        
+        --- Pronouns ---
+        ${formatCounts(pronounCounts)}
+        
+        --- Prepositions ---
+        ${formatCounts(prepositionCounts)}
+        
+        --- Indefinite Articles ---
+        ${formatCounts(articleCounts)}
+        `;
+
+        document.getElementById('output').innerText = outputText.trim();
+        }
+      </script>
+      <br>
+      <br>       
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <script src="scripts/q2.js"></script>
+      <script src="scripts/mainscript.js"></script>
+    </main>
+    <footer class="footer">
+      <p>
+        <a href="https://github.com/SHRISH-isback" target="_blank">GitHub</a>
+        <span>|</span>
+        <a href="https://linkedin.com/in/shrish-kadam-isback" target="_blank">LinkedIn</a>
+        <span>|</span>
+        <a href="https://linkedin.com/in/SHRISH_is_back" target="_blank">Instagram</a>
+      </p>
+    </footer>
+  </body>
+</html>

@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const currentPage = window.location.pathname.split("/").pop();
-    if (currentPage === "index.html" || currentPage === "about.html" || currentPage === "") {
+    if (currentPage === "index.html" || currentPage === "about.html" || currentPage === "q3.html" || currentPage === "") {
         const particleCanvas = document.createElement("canvas");
         particleCanvas.id = "particleCanvas"; 
         document.body.prepend(particleCanvas);
