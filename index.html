@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExamTracker - Indian Exam Results Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>ExamTracker</h1>
+            <p>Your Gateway to Indian Exam Results</p>
+        </div>
+        <div class="search-section">
+            <h2 style="margin-bottom: 20px; color: #333;">Quick Result Search</h2>
+            <form class="search-form" id="searchForm">
+                <div class="form-group">
+                    <label for="examSelect">Select Exam</label>
+                    <select id="examSelect" required>
+                        <option value="">Choose an exam</option>
+                        <option value="jee-main">JEE Main</option>
+                        <option value="jee-advanced">JEE Advanced</option>
+                        <option value="bitsat">BITSAT</option>
+                        <option value="neet">NEET</option>
+                        <option value="gate">GATE</option>
+                        <option value="cat">CAT</option>
+                        <option value="upsc">UPSC</option>
+                        <option value="ssc">SSC</option>
+                        <option value="mhtcet">MHT CET</option>
+                        <option value="kcet">KCET</option>
+                        <option value="manipal">Manipal Entrance Test</option>
+                        <option value="vit">VITEEE</option>
+                        <option value="vellore">VIT Vellore</option>
+                        <option value="uget">UGET</option>
+                        <option value="comedk">COMEDK</option>
+                        <option value="wbjee">WBJEE</option>
+                        <option value="ts-eamcet">TS EAMCET</option>
+                        <option value="ap-eamcet">AP EAMCET</option>
+                        <option value="keam">KEAM</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="rollNumber">Roll Number</label>
+                    <input type="text" id="rollNumber" placeholder="Enter your roll number" required>
+                </div>
+                <div class="form-group">
+                    <label for="year">Year</label>
+                    <select id="year" required>
+                        <option value="">Select year</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                    </select>
+                </div>
+            </form>
+            <button type="submit" class="search-btn" onclick="searchResult()">Search Result</button>
+        </div>
+
+        <div class="result-section" id="resultSection">
+            <h2 style="margin-bottom: 20px; color: #333;">Your Result</h2>
+            <div id="resultContent"></div>
+        </div>
+
+        <h2 style="color: white; text-align: center; margin-bottom: 30px; font-size: 2rem;">Popular Exams</h2>
+        
+        <div class="exam-grid">
+            <div class="exam-card">
+                <div class="exam-title">JEE Main</div>
+                <div class="exam-desc">Joint Entrance Examination for engineering admissions to NITs, IIITs, and other centrally funded technical institutions.</div>
+                <div class="exam-info">
+                    <span class="status live">Results Live</span>
+                    <span style="font-size: 12px; color: #666;">Session 2 - 2024</span>
+                </div>
+                <button class="check-result-btn" onclick="showExamDetails('jee-main')">Check Result</button>
+            </div>
+
+            <div class="exam-card">
+                <div class="exam-title">JEE Advanced</div>
+                <div class="exam-desc">Advanced level examination for admission to Indian Institutes of Technology (IITs).</div>
+                <div class="exam-info">
+                    <span class="status upcoming">Results Awaited</span>
+                    <span style="font-size: 12px; color: #666;">2024</span>
+                </div>
+                <button class="check-result-btn" onclick="showExamDetails('jee-advanced')">Check Result</button>
+            </div>
+
+            <div class="exam-card">
+                <div class="exam-title">BITSAT</div>
+                <div class="exam-desc">Birla Institute of Technology and Science Admission Test for engineering programs.</div>
+                <div class="exam-info">
+                    <span class="status live">Results Live</span>
+                    <span style="font-size: 12px; color: #666;">2024</span>
+                </div>
+                <button class="check-result-btn" onclick="showExamDetails('bitsat')">Check Result</button>
+            </div>
+
+            <div class="exam-card">
+                <div class="exam-title">NEET</div>
+                <div class="exam-desc">National Eligibility cum Entrance Test for medical and dental courses.</div>
+                <div class="exam-info">
+                    <span class="status live">Results Live</span>
+                    <span style="font-size: 12px; color: #666;">2024</span>
+                </div>
+                <button class="check-result-btn" onclick="showExamDetails('neet')">Check Result</button>
+            </div>
+
+            <div class="exam-card">
+                <div class="exam-title">MHT CET</div>
+                <div class="exam-desc">Maharashtra Common Entrance Test for engineering and pharmacy admissions in Maharashtra.</div>
+                <div class="exam-info">
+                    <span class="status live">Results Live</span>
+                    <span style="font-size: 12px; color: #666;">2024</span>
+                </div>
+                <button class="check-result-btn" onclick="showExamDetails('mhtcet')">Check Result</button>
+            </div>
+
+            <div class="exam-card">
+                <div class="exam-title">KCET</div>
+                <div class="exam-desc">Karnataka Common Entrance Test for engineering admissions in Karnataka state colleges.</div>
+                <div class="exam-info">
+                    <span class="status live">Results Live</span>
+                    <span style="font-size: 12px; color: #666;">2024</span>
+                </div>
+                <button class="check-result-btn" onclick="showExamDetails('kcet')">Check Result</button>
+            </div>
+
+            <div class="exam-card">
+                <div class="exam-title">Manipal Entrance Test</div>
+                <div class="exam-desc">Online entrance examination for admission to Manipal Academy of Higher Education.</div>
+                <div class="exam-info">
+                    <span class="status live">Results Live</span>
+                    <span style="font-size: 12px; color: #666;">2024</span>
+                </div>
+                <button class="check-result-btn" onclick="showExamDetails('manipal')">Check Result</button>
+            </div>
+
+            <div class="exam-card">
+                <div class="exam-title">VITEEE</div>
+                <div class="exam-desc">VIT Engineering Entrance Examination for admission to Vellore Institute of Technology.</div>
+                <div class="exam-info">
+                    <span class="status live">Results Live</span>
+                    <span style="font-size: 12px; color: #666;">2024</span>
+                </div>
+                <button class="check-result-btn" onclick="showExamDetails('vit')">Check Result</button>
+            </div>
+
+            <div class="exam-card">
+                <div class="exam-title">COMEDK</div>
+                <div class="exam-desc">Consortium of Medical, Engineering and Dental Colleges of Karnataka entrance test.</div>
+                <div class="exam-info">
+                    <span class="status live">Results Live</span>
+                    <span style="font-size: 12px; color: #666;">2024</span>
+                </div>
+                <button class="check-result-btn" onclick="showExamDetails('comedk')">Check Result</button>
+            </div>
+
+            <div class="exam-card">
+                <div class="exam-title">WBJEE</div>
+                <div class="exam-desc">West Bengal Joint Entrance Examination for engineering admissions in West Bengal.</div>
+                <div class="exam-info">
+                    <span class="status live">Results Live</span>
+                    <span style="font-size: 12px; color: #666;">2024</span>
+                </div>
+                <button class="check-result-btn" onclick="showExamDetails('wbjee')">Check Result</button>
+            </div>
+
+            <div class="exam-card">
+                <div class="exam-title">TS EAMCET</div>
+                <div class="exam-desc">Telangana State Engineering, Agriculture and Medical Common Entrance Test.</div>
+                <div class="exam-info">
+                    <span class="status live">Results Live</span>
+                    <span style="font-size: 12px; color: #666;">2024</span>
+                </div>
+                <button class="check-result-btn" onclick="showExamDetails('ts-eamcet')">Check Result</button>
+            </div>
+
+            <div class="exam-card">
+                <div class="exam-title">AP EAMCET</div>
+                <div class="exam-desc">Andhra Pradesh Engineering, Agriculture and Medical Common Entrance Test.</div>
+                <div class="exam-info">
+                    <span class="status live">Results Live</span>
+                    <span style="font-size: 12px; color: #666;">2024</span>
+                </div>
+                <button class="check-result-btn" onclick="showExamDetails('ap-eamcet')">Check Result</button>
+            </div>
+
+            <div class="exam-card">
+                <div class="exam-title">GATE</div>
+                <div class="exam-desc">Graduate Aptitude Test in Engineering for M.Tech admissions and PSU recruitments.</div>
+                <div class="exam-info">
+                    <span class="status closed">Results Declared</span>
+                    <span style="font-size: 12px; color: #666;">2024</span>
+                </div>
+                <button class="check-result-btn" onclick="showExamDetails('gate')">Check Result</button>
+            </div>
+
+            <div class="exam-card">
+                <div class="exam-title">CAT</div>
+                <div class="exam-desc">Common Admission Test for admission to Indian Institutes of Management (IIMs).</div>
+                <div class="exam-info">
+                    <span class="status upcoming">Upcoming</span>
+                    <span style="font-size: 12px; color: #666;">Nov 2024</span>
+                </div>
+                <button class="check-result-btn" disabled onclick="showExamDetails('cat')">Check Result</button>
+            </div>
+
+            <div class="exam-card">
+                <div class="exam-title">KEAM</div>
+                <div class="exam-desc">Kerala Engineering Architecture Medical entrance examination for admissions in Kerala.</div>
+                <div class="exam-info">
+                    <span class="status live">Results Live</span>
+                    <span style="font-size: 12px; color: #666;">2024</span>
+                </div>
+                <button class="check-result-btn" onclick="showExamDetails('keam')">Check Result</button>
+            </div>
+
+            <div class="exam-card">
+                <div class="exam-title">UGET</div>
+                <div class="exam-desc">Undergraduate Entrance Test for various undergraduate programs.</div>
+                <div class="exam-info">
+                    <span class="status live">Results Live</span>
+                    <span style="font-size: 12px; color: #666;">2024</span>
+                </div>
+                <button class="check-result-btn" onclick="showExamDetails('uget')">Check Result</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 ExamTracker. Stay updated with the latest exam results and notifications.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
