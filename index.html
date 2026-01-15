@@ -3,85 +3,353 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MY PROFILE - Home</title>
-    <link rel="stylesheet" href="styles/stylesheet.css">
-    <style>
-        body {
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-        .martian-section {
-            position: relative;
-            height: 100vh;
-            background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(139,0,0,0.8) 100%);
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        .martian-title {
-            font-size: 10vw;
-            font-weight: bold;
-            letter-spacing: 0.1em;
-            color: white;
-            text-transform: uppercase;
-        }
-        .martian-subtitle {
-            color: rgba(255,255,255,0.7);
-            margin-top: 20px;
-            font-size: 1.5vw;
-        }
-        .get-mono-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: orangered;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-    </style>
+    <meta name="description" content="Shrish Kadam - Computer Science undergraduate at IIIT Hyderabad specializing in Machine Learning and Cybersecurity">
+    <meta name="keywords" content="Shrish Kadam, Computer Science, IIIT Hyderabad, Machine Learning, Cybersecurity, Software Engineer">
+    <meta name="author" content="Shrish Kadam">
+    <title>Shrish Kadam | CS @ IIIT Hyderabad</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <main>
-        <header>
-        <h1></h1>
-        <nav>
-            <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="mailto:kadam.shrishk@gmail.com" target="_blank">Contact</a></li>
-                <li><a href="pdf_file/CV.pdf">Skills</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="q3.html">Text Box</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section class="martian-section">
-        <div class="martian-content">
-            <div class="martian-title">WELCOME TO MY WORLD</div>
-            <div class="martian-subtitle">
-                EMBRACE THE DARK SIDE
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <a href="#" class="nav-logo">SK</a>
+                <div class="nav-links" id="navLinks">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#education" class="nav-link">Education</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-profile">
+                    <img src="Profilepicture.png" alt="Shrish Kadam" class="profile-picture">
+                </div>
+                <h1 class="hero-title">Shrish Kadam</h1>
+                <p class="hero-subtitle">Computer Science Undergraduate | ML & Cybersecurity</p>
+                <p class="hero-description">Building secure, intelligent systems</p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Contact</a>
+                </div>
             </div>
         </div>
     </section>
-</main>
-<script src="scripts/mainscript.js" defer></script>
-<script src="scripts/q2.js" defer></script>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p class="about-text">
+                    I'm a Computer Science undergraduate at IIIT Hyderabad with strong fundamentals in systems programming, 
+                    algorithms, and software engineering. My work focuses on machine learning and security—two fields that 
+                    demand precision, deep understanding, and hands-on problem-solving.
+                </p>
+                <p class="about-text">
+                    I've built systems from the ground up, from implementing custom OS schedulers in xv6 to training NLP models 
+                    for code-mixed text. I approach problems methodically, enjoy debugging at the system level, and value writing 
+                    clean, maintainable code.
+                </p>
+                <p class="about-text">
+                    Currently seeking opportunities to apply my skills in real-world contexts—whether that's through internships, 
+                    research projects, or challenging technical problems that require both theoretical knowledge and practical execution.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section section-alt" id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                        <h3 class="skill-title">Programming Languages</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">LaTeX</span>
+                        <span class="skill-tag">Assembly</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 16v-4"></path>
+                            <path d="M12 8h.01"></path>
+                        </svg>
+                        <h3 class="skill-title">Machine Learning</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">BPE Tokenization</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                            <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                            <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                        </svg>
+                        <h3 class="skill-title">Cybersecurity</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Buffer Overflow</span>
+                        <span class="skill-tag">Reverse Engineering</span>
+                        <span class="skill-tag">Web Exploitation</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                        </svg>
+                        <h3 class="skill-title">Tools & Databases</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Overleaf</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+                            <path d="M12 8v4"></path>
+                            <path d="M12 16h.01"></path>
+                        </svg>
+                        <h3 class="skill-title">Languages</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">English</span>
+                        <span class="skill-tag">Marathi</span>
+                        <span class="skill-tag">Hindi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Named Entity Recognition for Code-Mixed Text</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">NLP</span>
+                            <span class="project-tag">CRF</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-problem"><strong>Problem:</strong> Standard NER models fail on code-mixed text (Hindi-English) due to language switching and informal structure.</p>
+                        <p class="project-solution"><strong>Solution:</strong> Implemented Conditional Random Fields with custom feature extraction including POS tags, character n-grams, and language-specific patterns. Achieved significant improvement in entity recognition accuracy.</p>
+                        <p class="project-impact"><strong>Impact:</strong> Enables better analysis of social media data and multilingual content prevalent in Indian digital spaces.</p>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Custom Scheduler Implementation in xv6</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">C</span>
+                            <span class="project-tag">Operating Systems</span>
+                            <span class="project-tag">xv6</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-problem"><strong>Problem:</strong> Default round-robin scheduler in xv6 lacks support for priority-based and multi-level feedback queue scheduling.</p>
+                        <p class="project-solution"><strong>Solution:</strong> Designed and implemented MLFQ scheduler with priority aging, system call modifications for process priority management, and comprehensive testing suite.</p>
+                        <p class="project-impact"><strong>Impact:</strong> Improved process scheduling fairness and reduced starvation for low-priority processes while maintaining system responsiveness.</p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Binary Exploitation Lab</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">C</span>
+                            <span class="project-tag">Assembly</span>
+                            <span class="project-tag">Security</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-problem"><strong>Problem:</strong> Understanding memory corruption vulnerabilities requires hands-on exploitation experience.</p>
+                        <p class="project-solution"><strong>Solution:</strong> Built a series of vulnerable binaries and developed exploits for buffer overflows, format string vulnerabilities, and ROP chains. Used GDB and Ghidra for analysis and debugging.</p>
+                        <p class="project-impact"><strong>Impact:</strong> Deepened understanding of low-level memory management and secure coding practices.</p>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Network Protocol Implementation</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">C</span>
+                            <span class="project-tag">Networking</span>
+                            <span class="project-tag">Systems</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-problem"><strong>Problem:</strong> Reliable data transfer over unreliable network channels requires careful protocol design.</p>
+                        <p class="project-solution"><strong>Solution:</strong> Implemented sliding window protocol with selective repeat, congestion control, and packet loss handling from scratch. Tested extensively with simulated network conditions.</p>
+                        <p class="project-impact"><strong>Impact:</strong> Gained practical understanding of TCP internals and network reliability mechanisms.</p>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Sentiment Analysis Pipeline</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">ML</span>
+                            <span class="project-tag">NLP</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-problem"><strong>Problem:</strong> Large-scale sentiment analysis requires efficient preprocessing and model selection.</p>
+                        <p class="project-solution"><strong>Solution:</strong> Built end-to-end pipeline with data cleaning, tokenization, feature extraction (TF-IDF), and comparative analysis of multiple classifiers (Naive Bayes, SVM, Logistic Regression).</p>
+                        <p class="project-impact"><strong>Impact:</strong> Achieved 87% accuracy on test set, with comprehensive analysis of model performance trade-offs.</p>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Memory Allocator (malloc implementation)</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">C</span>
+                            <span class="project-tag">Systems</span>
+                            <span class="project-tag">Data Structures</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-problem"><strong>Problem:</strong> Efficient dynamic memory allocation requires balancing speed, fragmentation, and memory overhead.</p>
+                        <p class="project-solution"><strong>Solution:</strong> Implemented custom malloc/free using explicit free lists with coalescing and boundary tags. Optimized for both throughput and memory utilization.</p>
+                        <p class="project-impact"><strong>Impact:</strong> Achieved 85% memory utilization with competitive performance on standard benchmarks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section section-alt" id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-content">
+                <div class="education-card">
+                    <div class="education-header">
+                        <h3 class="education-degree">Bachelor of Technology in Computer Science</h3>
+                        <p class="education-institution">International Institute of Information Technology, Hyderabad</p>
+                        <p class="education-year">2022 - 2026 (Expected)</p>
+                    </div>
+                    <div class="education-body">
+                        <h4 class="coursework-title">Relevant Coursework:</h4>
+                        <div class="coursework-grid">
+                            <div class="coursework-item">Operating Systems</div>
+                            <div class="coursework-item">Automata Theory</div>
+                            <div class="coursework-item">Computational Linguistics</div>
+                            <div class="coursework-item">Machine Learning</div>
+                            <div class="coursework-item">Data Structures & Algorithms</div>
+                            <div class="coursework-item">Computer Networks</div>
+                            <div class="coursework-item">Database Systems</div>
+                            <div class="coursework-item">Software Engineering</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <p class="contact-description">
+                    I'm currently looking for internship opportunities and interesting projects. 
+                    Feel free to reach out if you'd like to discuss potential collaborations or just want to connect.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:kadam.shrishk@gmail.com" class="contact-link">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span>Email</span>
+                    </a>
+                    <a href="https://github.com/SHRISH-isback" target="_blank" rel="noopener noreferrer" class="contact-link">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://linkedin.com/in/shrish-kadam-isback" target="_blank" rel="noopener noreferrer" class="contact-link">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">&copy; 2026 Shrish Kadam. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
-<footer class="footer">
-    <p>
-        <a href="https://github.com/SHRISH-isback" target="_blank">GitHub</a>
-        <span>|</span> 
-        <a href="https://linkedin.com/in/shrish-kadam-isback" target="_blank">LinkedIn</a>
-        <span>|</span> 
-        <a href="https://codeforces.com/profile/SHRISH_IS_BACK" target="_blank">Codeforces</a>
-    </p>
-</footer>
 </html>
+
