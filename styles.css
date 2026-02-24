@@ -515,34 +515,13 @@ a {
 
 .project-tag {
     padding: 0.25rem 0.625rem;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: linear-gradient(135deg, var(--color-primary) 10%, var(--color-secondary) 100%);
     color: white;
     border-radius: 4px;
     font-size: 0.75rem;
     font-weight: 500;
     transition: all var(--transition-base);
 }
-
-.project-card:nth-child(2) .project-tag {
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
-}
-
-.project-card:nth-child(3) .project-tag {
-    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
-}
-
-.project-card:nth-child(4) .project-tag {
-    background: linear-gradient(135deg, var(--color-success) 0%, var(--color-accent) 100%);
-}
-
-.project-card:nth-child(5) .project-tag {
-    background: linear-gradient(135deg, var(--color-warning) 0%, var(--color-primary) 100%);
-}
-
-.project-card:nth-child(6) .project-tag {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-}
-
 .project-body {
     flex: 1;
 }
