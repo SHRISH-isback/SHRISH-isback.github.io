@@ -227,7 +227,7 @@ a {
     left: -10%;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(79, 47, 155, 0.1) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
 }
@@ -336,7 +336,7 @@ a {
 
 #about {
     position: relative;
-    background: linear-gradient(180deg, #ffffff 0%, var(--color-bg-alt) 100%);
+    background: linear-gradient(180deg, #0b6d70 0%, var(--color-bg-alt) 100%);
 }
 
 .about-content {
@@ -368,7 +368,7 @@ a {
 }
 
 .skill-category {
-    background: linear-gradient(135deg, #ffffff 0%, #fefeff 100%);
+    background: linear-gradient(135deg, #151e75 0%, #216169 100%);
     padding: var(--spacing-lg);
     border-radius: 12px;
     border: 1px solid var(--color-border);
@@ -398,7 +398,7 @@ a {
     transform: translateY(-4px);
     box-shadow: 0 12px 24px rgba(99, 102, 241, 0.15);
     border-color: var(--color-primary-light);
-    background: linear-gradient(135deg, #ffffff 0%, var(--color-bg-gradient-1) 100%);
+    background: linear-gradient(135deg, #207e9b 0%, var(--color-bg-gradient-1) 100%);
 }
 
 .skill-header {
@@ -428,7 +428,7 @@ a {
 
 .skill-tag {
     padding: 0.375rem 0.75rem;
-    background: linear-gradient(135deg, var(--color-bg-alt) 0%, #ffffff 100%);
+    background: linear-gradient(135deg, var(--color-bg-alt) 0%, #08206d 100%);
     color: var(--color-text-secondary);
     border-radius: 6px;
     font-size: var(--font-size-sm);
@@ -450,7 +450,7 @@ a {
 
 #projects {
     position: relative;
-    background: linear-gradient(180deg, var(--color-bg-alt) 0%, #ffffff 100%);
+    background: linear-gradient(180deg, var(--color-bg-alt) 0%, #15565e 100%);
 }
 
 .projects-grid {
@@ -460,7 +460,7 @@ a {
 }
 
 .project-card {
-    background: linear-gradient(135deg, #ffffff 0%, #fefeff 100%);
+    background: linear-gradient(135deg, #25558b 0%, #1d5080 100%);
     border: 1px solid var(--color-border);
     border-radius: 12px;
     padding: var(--spacing-lg);
@@ -492,7 +492,7 @@ a {
     transform: translateY(-4px);
     box-shadow: 0 12px 24px rgba(99, 102, 241, 0.15);
     border-color: var(--color-primary-light);
-    background: linear-gradient(135deg, #ffffff 0%, var(--color-bg-gradient-1) 100%);
+    background: linear-gradient(135deg, #11165c 0%, var(--color-bg-gradient-1) 100%);
 }
 
 .project-header {
@@ -573,7 +573,7 @@ a {
 }
 
 .education-card {
-    background: linear-gradient(135deg, #ffffff 0%, var(--color-bg-gradient-1) 100%);
+    background: linear-gradient(135deg, #16405c 0%, var(--color-bg-gradient-1) 100%);
     border: 1px solid var(--color-border);
     border-radius: 12px;
     padding: var(--spacing-xl);
@@ -618,7 +618,7 @@ a {
 
 .coursework-item {
     padding: 0.75rem 1rem;
-    background: linear-gradient(135deg, var(--color-bg-alt) 0%, #ffffff 100%);
+    background: linear-gradient(135deg, var(--color-bg-alt) 0%, #1c95aa 100%);
     border-radius: 6px;
     font-size: var(--font-size-sm);
     color: var(--color-text-secondary);
@@ -628,7 +628,7 @@ a {
 
 .coursework-item:hover {
     background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
-    color: white;
+    color: rgb(23, 105, 105);
     border-color: var(--color-primary);
     transform: translateY(-2px);
 }
@@ -662,7 +662,7 @@ a {
     align-items: center;
     gap: var(--spacing-sm);
     padding: 1rem 1.5rem;
-    background: linear-gradient(135deg, #ffffff 0%, var(--color-bg-alt) 100%);
+    background: linear-gradient(135deg, #19798a 0%, var(--color-bg-alt) 100%);
     border: 1px solid var(--color-border);
     border-radius: 8px;
     transition: all var(--transition-base);
@@ -672,7 +672,7 @@ a {
 .contact-link:hover {
     transform: translateY(-2px);
     border-color: var(--color-primary);
-    color: white;
+    color: rgb(48, 84, 160);
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
     box-shadow: 0 8px 16px rgba(99, 102, 241, 0.25);
 }
