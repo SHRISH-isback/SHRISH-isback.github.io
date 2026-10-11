@@ -373,8 +373,10 @@ function createOS({ screen, isFlat = () => false, onShutdown = () => {}, onPower
         el.setAttribute('aria-label', app.title);
         el.style.width = `${w}px`;
         el.style.height = `${h}px`;
-        el.style.left = `${Math.min(112 + n * 26, 800 - w - 6)}px`;
-        el.style.top = `${Math.min(12 + n * 26, 564 - h - 6)}px`;
+        const maxW = desktop.clientWidth || 960;
+        const maxH = desktop.clientHeight || 564;
+        el.style.left = `${Math.max(0, Math.min(112 + n * 26, maxW - w - 6))}px`;
+        el.style.top = `${Math.max(0, Math.min(12 + n * 26, maxH - h - 6))}px`;
         el.innerHTML = `
             <header class="titlebar">
                 <span class="tb-icon">${ICONS[app.icon]}</span>
