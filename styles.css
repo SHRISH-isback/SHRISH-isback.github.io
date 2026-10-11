@@ -18,7 +18,7 @@
     --term-green: #55ff55;
     --amber: #ffb000;
 
-    --font-ui: Tahoma, "Segoe UI", Verdana, sans-serif;
+    --font-ui: "VT323", "Courier New", monospace;
     --font-pixel: "VT323", "Courier New", monospace;
 
     /* Windows-95 style raised / sunken borders */
@@ -51,7 +51,7 @@ body {
 
 /* ---------- 2. Page + HUD ---------- */
 .stage { position: fixed; inset: 0; }
-.stage canvas { display: block; }
+.stage canvas { display: block; image-rendering: pixelated; }
 
 .css-layer {
     position: absolute;
@@ -117,8 +117,8 @@ body.is-zoomed .hud-bottom { opacity: 0; pointer-events: none; }
     border-radius: 26px;
     color: var(--ink);
     font-family: var(--font-ui);
-    font-size: 14px;
-    line-height: 1.35;
+    font-size: 18px;
+    line-height: 1.15;
     visibility: hidden; /* shown once the 3D scene (or flat mode) is ready */
     user-select: text;
 }
@@ -188,7 +188,24 @@ body:not(.flat).is-zoomed .off-hint { display: none; }
     position: absolute;
     inset: 0 0 var(--tb-h) 0;
     overflow: hidden;
-    background: var(--teal);
+    background-color: var(--teal);
+    /* dither: a fine checkerboard of slightly darker pixels */
+    background-image: repeating-conic-gradient(rgba(0, 0, 0, 0.07) 0% 25%, transparent 0% 50%);
+    background-size: 4px 4px;
+    image-rendering: pixelated;
+}
+/* Pixel-art landscape along the bottom of the desktop (drawn from rectangles, 8 px per pixel) */
+.desktop::before {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 176px;
+    pointer-events: none;
+    image-rendering: pixelated;
+    background-repeat: repeat-x;
+    background-position: left bottom;
+    background-size: 800px 176px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 22' shape-rendering='crispEdges'%3E%3Crect x='92' y='3' width='6' height='1' fill='%23ffd23f'/%3E%3Crect x='91' y='4' width='8' height='4' fill='%23ffd23f'/%3E%3Crect x='92' y='8' width='6' height='1' fill='%23ffd23f'/%3E%3Crect x='10' y='2' width='1' height='1' fill='%23bff'/%3E%3Crect x='30' y='5' width='1' height='1' fill='%23bff'/%3E%3Crect x='55' y='3' width='1' height='1' fill='%23bff'/%3E%3Crect x='68' y='7' width='1' height='1' fill='%23bff'/%3E%3Cpath d='M0 22V15h6v-2h8v-3h10v3h6v2h8v-4h10v-3h8v3h6v4h8v-2h10v-3h6v3h8v2h6v8z' fill='%23006666'/%3E%3Cpath d='M0 22V19h10v-2h12v2h14v-2h10v-2h14v2h12v2h10v-1h16v3z' fill='%23004d4d'/%3E%3Crect x='0' y='20' width='100' height='2' fill='%23003838'/%3E%3C/svg%3E");
 }
 .desktop::after {
     content: "ShrishOS 95";
@@ -215,7 +232,7 @@ body:not(.flat).is-zoomed .off-hint { display: none; }
     padding: 6px 2px;
     min-height: 44px;
     font: inherit;
-    font-size: 13px;
+    font-size: 17px;
     color: #fff;
     text-align: center;
     text-shadow: 1px 1px 0 #003c3c;
@@ -260,7 +277,7 @@ body:not(.flat).is-zoomed .off-hint { display: none; }
     flex: 1;
     margin: 0;
     overflow: hidden;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 700;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -311,7 +328,7 @@ body:not(.flat).is-zoomed .off-hint { display: none; }
 
 /* About: terminal */
 .about { display: flex; gap: 6px; height: 100%; padding: 6px; }
-.about-photo { flex: none; width: 128px; font-size: 12px; text-align: center; }
+.about-photo { flex: none; width: 128px; font-size: 16px; text-align: center; }
 .about-photo img {
     display: block;
     width: 100%;
@@ -345,7 +362,7 @@ body:not(.flat).is-zoomed .off-hint { display: none; }
 
 /* Skills + projects: explorer-style panes */
 .explorer, .proj { display: flex; flex-direction: column; height: 100%; }
-.addr { display: flex; align-items: center; gap: 6px; padding: 4px 6px; font-size: 13px; }
+.addr { display: flex; align-items: center; gap: 6px; padding: 4px 6px; font-size: 17px; }
 .addr .path { flex: 1; padding: 2px 6px; background: #fff; box-shadow: var(--bevel-in); }
 .panes { display: flex; flex: 1; min-height: 0; gap: 3px; padding: 0 3px; }
 .proj { flex-direction: row; gap: 3px; padding: 3px; }
@@ -374,7 +391,7 @@ body:not(.flat).is-zoomed .off-hint { display: none; }
     border: 0;
     cursor: pointer;
 }
-.proj-list button { flex-direction: column; gap: 2px; padding: 6px 4px; font-size: 12px; text-align: center; }
+.proj-list button { flex-direction: column; gap: 2px; padding: 6px 4px; font-size: 16px; text-align: center; }
 .tree button svg { width: 18px; height: 18px; flex: none; }
 .proj-list button svg { width: 32px; height: 32px; }
 .tree button[aria-current="true"],
@@ -393,14 +410,14 @@ body:not(.flat).is-zoomed .off-hint { display: none; }
     background: #fff;
     box-shadow: var(--bevel-in);
 }
-.file { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 13px; text-align: center; word-break: break-word; }
+.file { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 17px; text-align: center; word-break: break-word; }
 .file svg { width: 30px; height: 30px; }
-.statusbar { margin: 3px; padding: 2px 8px; font-size: 12px; box-shadow: var(--bevel-in); }
+.statusbar { margin: 3px; padding: 2px 8px; font-size: 16px; box-shadow: var(--bevel-in); }
 
 .proj-detail { flex: 1; min-width: 0; padding: 12px 14px; overflow: auto; background: #fff; box-shadow: var(--bevel-in); }
-.proj-detail h3 { margin: 0 0 6px; font-size: 16px; }
+.proj-detail h3 { margin: 0 0 6px; font-size: 24px; }
 .tags { display: flex; flex-wrap: wrap; gap: 4px; margin: 0 0 8px; padding: 0; list-style: none; }
-.tag { padding: 1px 7px; font-size: 12px; background: var(--face); box-shadow: var(--bevel-out); }
+.tag { padding: 1px 7px; font-size: 16px; background: var(--face); box-shadow: var(--bevel-out); }
 .proj-detail dl { margin: 0 0 12px; }
 .proj-detail dt { margin-top: 8px; font-weight: 700; color: var(--navy); }
 .proj-detail dd { margin: 2px 0 0; }
@@ -416,9 +433,9 @@ body:not(.flat).is-zoomed .off-hint { display: none; }
 }
 .cert .kicker { margin: 0; font: 400 20px/1 var(--font-pixel); letter-spacing: 3px; color: #7a5b00; }
 .cert h3 { margin: 8px 0 4px; font: 400 32px/1.05 var(--font-pixel); color: var(--navy); }
-.cert .school { margin: 0 0 4px; font-size: 15px; font-weight: 700; }
+.cert .school { margin: 0 0 4px; font-size: 20px; font-weight: 700; }
 .cert .years { margin: 0 0 14px; }
-.cert .focus { margin: 12px 0 0; font-size: 13px; }
+.cert .focus { margin: 12px 0 0; font-size: 17px; }
 .progress {
     height: 18px;
     margin: 0 auto;
@@ -453,7 +470,7 @@ body:not(.flat).is-zoomed .off-hint { display: none; }
 .field input:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--navy); outline-offset: 0; }
 .mail-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 2px; }
 .mail-actions .grow { flex: 1; }
-.mail-note { margin: 0; min-height: 1.35em; font-size: 12px; }
+.mail-note { margin: 0; min-height: 1.35em; font-size: 16px; }
 .links { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 8px; border-top: 1px solid var(--mid); box-shadow: 0 -1px 0 var(--hi); }
 
 /* ---------- 7. Taskbar + start menu ---------- */
@@ -481,7 +498,7 @@ body:not(.flat).is-zoomed .off-hint { display: none; }
     justify-content: flex-start;
 }
 .task[aria-pressed="true"] { font-weight: 700; box-shadow: var(--bevel-in); }
-.tray { display: flex; align-items: center; height: 28px; padding: 0 10px; font-size: 13px; color: #000; box-shadow: var(--bevel-in); }
+.tray { display: flex; align-items: center; height: 28px; padding: 0 10px; font-size: 17px; color: #000; box-shadow: var(--bevel-in); }
 
 .startmenu {
     position: absolute;

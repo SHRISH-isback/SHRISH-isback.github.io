@@ -113,7 +113,7 @@ const APPS = {
     about: { label: 'About', title: 'Terminal - about.txt', icon: 'terminal', size: [560, 380], render: renderAbout },
     skills: { label: 'Skills', title: 'Skills', icon: 'folder', size: [580, 380], render: renderSkills },
     projects: { label: 'Projects', title: 'Projects - A:\\', icon: 'floppy', size: [640, 440], render: renderProjects },
-    education: { label: 'Education', title: 'transcript.exe', icon: 'cap', size: [500, 350], render: renderEducation },
+    education: { label: 'Education', title: 'transcript.exe', icon: 'cap', size: [500, 390], render: renderEducation },
     contact: { label: 'Contact', title: 'New Message', icon: 'mail', size: [540, 400], render: renderContact },
 };
 

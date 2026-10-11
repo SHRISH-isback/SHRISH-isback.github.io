@@ -22,7 +22,7 @@ function canvasTexture(w, h, draw) {
     draw(c.getContext('2d'), w, h);
     const tex = new THREE.CanvasTexture(c);
     tex.colorSpace = THREE.SRGBColorSpace;
-    tex.anisotropy = 4;
+    tex.magFilter = THREE.NearestFilter; // crisp pixels when textures are enlarged
     return tex;
 }
 
@@ -80,8 +80,9 @@ async function initDesk({ stage, screenEl, lib }) {
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // ---------- Renderers ----------
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    // Pixel-art look: draw the scene at half resolution and let the browser scale it up with hard pixel edges
+    const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true });
+    renderer.setPixelRatio(0.5);
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     stage.prepend(renderer.domElement);
