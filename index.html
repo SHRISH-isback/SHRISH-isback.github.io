@@ -80,6 +80,23 @@
         </div>
     </noscript>
 
-    <script type="module" src="main.js"></script>
+    <!-- Our own code is loaded as normal scripts so the site works even when opened by double-click (file://) -->
+    <script>window.threeReady = new Promise(function (resolve) { window.__resolveThree = resolve; });</script>
+    <script src="os.js"></script>
+    <script src="desk.js"></script>
+    <script src="main.js"></script>
+
+    <!-- three.js comes from the CDN. An inline module can import from the web even on file:// -->
+    <script type="module">
+        try {
+            const THREE = await import('three');
+            const { CSS3DRenderer, CSS3DObject } = await import('three/addons/renderers/CSS3DRenderer.js');
+            const { RoundedBoxGeometry } = await import('three/addons/geometries/RoundedBoxGeometry.js');
+            window.__resolveThree({ THREE, CSS3DRenderer, CSS3DObject, RoundedBoxGeometry });
+        } catch (err) {
+            console.warn('Could not load three.js', err);
+            window.__resolveThree(null);
+        }
+    </script>
 </body>
 </html>

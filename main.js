@@ -1,7 +1,7 @@
 // Entry point: decides between the 3D desk and the flat fallback, and wires up the controls.
+// This is a classic script (not an ES module) so the site also works when index.html is opened by double-click.
 
-import { createOS } from './os.js';
-
+(() => {
 const stage = document.getElementById('stage');
 const screenEl = document.getElementById('screen');
 const osRoot = document.getElementById('os');
@@ -72,9 +72,14 @@ async function start() {
     flat = matchMedia('(max-width: 760px)').matches || !hasWebGL();
 
     if (!flat) {
+        // window.threeReady is set up in index.html; it gives null if three.js could not be loaded
+        const lib = await Promise.race([
+            window.threeReady,
+            new Promise((resolve) => setTimeout(() => resolve(null), 8000)),
+        ]);
         try {
-            const { initDesk } = await import('./desk.js');
-            desk = await initDesk({ stage, screenEl });
+            if (!lib) throw new Error('three.js did not load (offline?)');
+            desk = await window.initDesk({ stage, screenEl, lib });
         } catch (err) {
             console.warn('3D desk unavailable, using the flat layout instead.', err);
             stage.querySelectorAll('canvas, .css-layer').forEach((n) => n.remove());
@@ -96,3 +101,4 @@ async function start() {
 }
 
 start();
+})();

@@ -1,10 +1,10 @@
+(() => {
+let THREE, CSS3DRenderer, CSS3DObject, RoundedBoxGeometry; // filled in by initDesk() from the three.js library loaded in index.html
+
 // The 3D desk: a beige CRT monitor, keyboard and desk props built from simple shapes.
 // The monitor's screen is the real web page (#screen) placed into the scene with CSS3DRenderer,
 // so its text stays sharp and its buttons stay clickable.
 
-import * as THREE from 'three';
-import { CSS3DRenderer, CSS3DObject } from 'three/addons/renderers/CSS3DRenderer.js';
-import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 
 // Screen layout (world units). The DOM screen is 800x600 px, drawn 4 x 3 units wide.
 const SCREEN_PX_W = 800;
@@ -73,7 +73,8 @@ function floppy(color, label) {
     return g;
 }
 
-export async function initDesk({ stage, screenEl }) {
+async function initDesk({ stage, screenEl, lib }) {
+    ({ THREE, CSS3DRenderer, CSS3DObject, RoundedBoxGeometry } = lib);
     try { await Promise.race([document.fonts.load('48px VT323'), sleep(1500)]); } catch { /* fonts are optional */ }
 
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -417,3 +418,6 @@ export async function initDesk({ stage, screenEl }) {
         },
     };
 }
+
+window.initDesk = initDesk;
+})();

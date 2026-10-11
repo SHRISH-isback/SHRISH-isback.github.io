@@ -1,3 +1,4 @@
+(() => {
 // ShrishOS 95: the retro "operating system" that runs on the 3D monitor.
 // It is plain DOM (no 3D code), so it also works as a flat full-screen page.
 
@@ -291,7 +292,7 @@ function renderContact(body) {
 // ------------------------------------------------------------
 // The OS itself
 // ------------------------------------------------------------
-export function createOS({ screen, isFlat = () => false, onShutdown = () => {}, onPowerChange = () => {} }) {
+function createOS({ screen, isFlat = () => false, onShutdown = () => {}, onPowerChange = () => {} }) {
     const $ = (sel) => screen.querySelector(sel);
     const bootEl = $('#boot');
     const desktop = $('#desktop');
@@ -553,3 +554,6 @@ export function createOS({ screen, isFlat = () => false, onShutdown = () => {}, 
 
     return { powerOn, isOn: () => on };
 }
+
+window.createOS = createOS;
+})();
