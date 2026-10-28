@@ -199,6 +199,41 @@ code {
 }
 
 /* ====================================
+   Experience & education entries
+   ==================================== */
+
+.entry + .entry {
+    margin-top: 24px;
+}
+
+.entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 4px 16px;
+    flex-wrap: wrap;
+}
+
+.entry-head .meta {
+    white-space: nowrap;
+}
+
+.entry > .meta,
+#education .entry-head + .meta {
+    margin-bottom: 6px;
+}
+
+.entry ul,
+#education ul {
+    padding-left: 20px;
+}
+
+.entry li + li,
+#education li + li {
+    margin-top: 4px;
+}
+
+/* ====================================
    Skills
    ==================================== */
 

@@ -17,6 +17,7 @@
             <a href="#top" class="site-name">Shrish Kiran Kadam</a>
             <nav class="site-nav" aria-label="Primary">
                 <a href="#about">About</a>
+                <a href="#experience">Experience</a>
                 <a href="#projects">Projects</a>
                 <a href="#skills">Skills</a>
                 <a href="#education">Education</a>
@@ -32,6 +33,7 @@
                 <h1>Shrish Kiran Kadam</h1>
                 <p class="lead">Computer Science undergraduate at IIIT Hyderabad, working on NLP, machine learning and security.</p>
                 <p class="intro-links">
+                    <a href="Shrish_Kadam_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
                     <a href="mailto:kadam.shrishk@gmail.com">Email</a>
                     <a href="https://github.com/SHRISH-isback" target="_blank" rel="noopener noreferrer">GitHub</a>
                     <a href="https://linkedin.com/in/shrish-kadam-isback" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -42,14 +44,74 @@
         <section id="about">
             <h2>About</h2>
             <p>
-                I'm a B.Tech student at IIIT Hyderabad. Most of my work is in NLP and machine learning,
-                with a systems and security background from courses and CTF-style problems.
+                I'm a B.Tech and M.S. (Computational Linguistics) student at IIIT Hyderabad and an undergraduate
+                researcher in the MT-NLP Lab, working on LLM reasoning, in-context learning and model internals.
             </p>
             <p>
-                I've implemented custom schedulers in xv6, trained NLP models for code-mixed text, built a
-                Transformer and tokenizer from scratch in PyTorch, and written a network file system in C.
+                I've also built a Transformer and tokenizer from scratch in PyTorch, a network file system in C,
+                and a thermal vision system during a research internship at KPIT Apex Lab.
                 I'm looking for internships and research projects.
             </p>
+        </section>
+
+        <section id="experience">
+            <h2>Research &amp; Experience</h2>
+
+            <article class="entry">
+                <div class="entry-head">
+                    <h3>Undergraduate Researcher, MT-NLP Lab, IIIT Hyderabad</h3>
+                    <span class="meta">Apr 2026 &ndash; present</span>
+                </div>
+                <p class="meta">Advisor: Dr. Manish Shrivastava</p>
+                <ul>
+                    <li>Investigating LLM reasoning, in-context learning and internal representations.</li>
+                    <li>Exploring techniques for efficient LLM inference and empirical model evaluation.</li>
+                </ul>
+            </article>
+
+            <article class="entry">
+                <div class="entry-head">
+                    <h3>Research Intern, KPIT Apex Lab, Pune</h3>
+                    <span class="meta">May &ndash; Jul 2026</span>
+                </div>
+                <p class="meta">Embedded systems and computer vision</p>
+                <ul>
+                    <li>Developed a thermal vision system for real-time spatial tracking and temperature monitoring.</li>
+                    <li>Implemented perspective correction and embedded computer vision pipelines.</li>
+                </ul>
+            </article>
+
+            <article class="entry">
+                <div class="entry-head">
+                    <h3>VitalSync: Polar ECG/HR Monitor &amp; Experiment Orchestrator</h3>
+                    <span class="meta">Jan &ndash; Apr 2026</span>
+                </div>
+                <p class="meta">Project mentor: Satish Kathirisetti, Product Labs</p>
+                <ul>
+                    <li>Built an experiment platform integrating Polar ECG/HR sensors and BLE data streams.</li>
+                    <li>Implemented synchronized data collection, visualization and fault recovery.</li>
+                </ul>
+            </article>
+
+            <article class="entry">
+                <div class="entry-head">
+                    <h3>Teaching Assistant, Digital Systems &amp; Microcontroller, IIIT Hyderabad</h3>
+                    <span class="meta">Aug 2026 &ndash; present</span>
+                </div>
+                <ul>
+                    <li>Support laboratory sessions, technical debugging and course evaluation.</li>
+                </ul>
+            </article>
+
+            <article class="entry">
+                <div class="entry-head">
+                    <h3>Project Manager, Astronautics Club, IIITH</h3>
+                    <span class="meta">Aug 2024 &ndash; Jan 2026</span>
+                </div>
+                <ul>
+                    <li>Led student project teams, coordinated technical execution and managed project timelines.</li>
+                </ul>
+            </article>
         </section>
 
         <section id="projects">
@@ -65,6 +127,15 @@
                     cached activations, a repair experiment, and a type-aware controller compared against selective prediction.
                 </p>
                 <p class="links"><a href="https://github.com/the-neemon/type-aware-vlm-failures" target="_blank" rel="noopener noreferrer">Code</a></p>
+            </article>
+
+            <article class="project">
+                <h3>Agentic AI Security Firewall</h3>
+                <p class="meta">LLM agents &middot; Security &middot; Private project</p>
+                <p>
+                    A security layer for LLM agents and tool-using systems that enforces authorization and policy controls,
+                    with prompt-injection detection, request filtering and safeguards against unsafe tool calls.
+                </p>
             </article>
 
             <article class="project">
@@ -158,13 +229,15 @@
             <h2>Skills</h2>
             <dl class="skills">
                 <dt>Languages</dt>
-                <dd>Python, C, C++, SQL, Assembly</dd>
-                <dt>Machine learning</dt>
-                <dd>PyTorch, TensorFlow, NLP, tokenization (BPE)</dd>
+                <dd>Python, C++, C, SQL, Assembly</dd>
+                <dt>AI / ML</dt>
+                <dd>PyTorch, Hugging Face Transformers, TensorFlow, scikit-learn</dd>
+                <dt>Research areas</dt>
+                <dd>LLMs, reasoning, in-context learning, agentic AI, NLP</dd>
                 <dt>Security</dt>
                 <dd>Buffer overflows, reverse engineering, web exploitation</dd>
-                <dt>Tools</dt>
-                <dd>Git, Docker, MongoDB, MySQL, LaTeX</dd>
+                <dt>Systems &amp; tools</dt>
+                <dd>Linux, Git, Docker, CUDA, SLURM/HPC, OpenCV, MongoDB, MySQL, LaTeX</dd>
                 <dt>Spoken</dt>
                 <dd>English, Marathi, Hindi</dd>
             </dl>
@@ -172,12 +245,14 @@
 
         <section id="education">
             <h2>Education</h2>
-            <p class="degree"><strong>B.Tech in Computer Science</strong>, International Institute of Information Technology, Hyderabad</p>
-            <p class="meta">2024 &ndash; 2029 (expected)</p>
-            <p>
-                Coursework: Operating Systems, Automata Theory, Computational Linguistics, Machine Learning,
-                Data Structures and Algorithms, Computer Networks, Database Systems, Software Engineering.
-            </p>
+            <div class="entry-head">
+                <h3>International Institute of Information Technology, Hyderabad</h3>
+                <span class="meta">Jul 2024 &ndash; present</span>
+            </div>
+            <p class="meta">B.Tech in Computer Science, M.S. in Computational Linguistics</p>
+            <ul>
+                <li>Coursework: Data Structures, Algorithms, Operating Systems, Networks, NLP, Machine Learning.</li>
+            </ul>
         </section>
 
         <section id="contact">
