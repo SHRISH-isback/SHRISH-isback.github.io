@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shrish Kiran Kadam - Computer Science undergraduate at IIIT Hyderabad specializing in Machine Learning and Cybersecurity. Portfolio on a retro 3D computer.">
+    <meta name="keywords" content="Shrish Kiran Kadam, Computer Science, IIIT Hyderabad, Machine Learning, Cybersecurity, Software Engineer">
+    <meta name="author" content="Shrish Kiran Kadam">
+    <title>Shrish Kiran Kadam | CS @ IIIT Hyderabad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- three.js is loaded from a CDN; "three" and "three/addons/" are resolved by this import map -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+</head>
+<body>
+
+    <!-- The 3D canvas and the CSS3D layer are added here by desk.js -->
+    <div id="stage" class="stage">
+
+        <!-- The computer screen: a normal web page that desk.js maps onto the 3D monitor -->
+        <div id="screen" class="screen is-off" aria-label="Retro computer screen">
+            <p class="off-hint" aria-hidden="true">PRESS POWER_</p>
+
+            <!-- "inert" keeps the OS un-clickable and un-focusable until the camera has zoomed in -->
+            <div id="os" class="os" inert>
+                <div id="boot" class="boot" hidden></div>
+
+                <div id="desktop" class="desktop" hidden>
+                    <nav id="icons" class="icons" aria-label="Programs"></nav>
+                </div>
+
+                <div id="taskbar" class="taskbar" hidden>
+                    <button id="startBtn" class="btn start" aria-haspopup="true" aria-expanded="false">
+                        <svg viewBox="0 0 16 16" width="16" height="16" shape-rendering="crispEdges" aria-hidden="true" focusable="false">
+                            <rect x="1" y="1" width="6" height="6" fill="#e03c31"/>
+                            <rect x="9" y="1" width="6" height="6" fill="#3aa655"/>
+                            <rect x="1" y="9" width="6" height="6" fill="#1f5fd6"/>
+                            <rect x="9" y="9" width="6" height="6" fill="#f2c200"/>
+                        </svg>
+                        Start
+                    </button>
+                    <div id="tasks" class="tasks"></div>
+                    <div class="tray" aria-label="Clock"><span id="clock">--:--</span></div>
+                </div>
+
+                <div id="startMenu" class="startmenu" hidden></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay controls (plain HTML so they work with keyboard and screen readers) -->
+    <header class="hud hud-title">
+        <h1>Shrish Kiran Kadam</h1>
+        <p>Computer Science @ IIIT Hyderabad &middot; ML &amp; Cybersecurity</p>
+    </header>
+
+    <div class="hud hud-bottom">
+        <button id="powerBtn" class="rbtn" type="button">Power on</button>
+    </div>
+
+    <button id="backBtn" class="rbtn hud-back" type="button" hidden>Back to desk (Esc)</button>
+
+    <noscript>
+        <div class="noscript">
+            <h1>Shrish Kiran Kadam</h1>
+            <p>Computer Science undergraduate at IIIT Hyderabad &middot; Machine Learning &amp; Cybersecurity.</p>
+            <p>This portfolio is an interactive 3D computer and needs JavaScript.
+               Find me on <a href="https://github.com/SHRISH-isback">GitHub</a>,
+               <a href="https://linkedin.com/in/shrish-kadam-isback">LinkedIn</a> or
+               <a href="mailto:kadam.shrishk@gmail.com">email</a>.</p>
+        </div>
+    </noscript>
+
+    <!-- Our own code is loaded as normal scripts so the site works even when opened by double-click (file://) -->
+    <script>window.threeReady = new Promise(function (resolve) { window.__resolveThree = resolve; });</script>
+    <script src="os.js"></script>
+    <script src="desk.js"></script>
+    <script src="main.js"></script>
+
+    <!-- three.js comes from the CDN. An inline module can import from the web even on file:// -->
+    <script type="module">
+        try {
+            const THREE = await import('three');
+            const { CSS3DRenderer, CSS3DObject } = await import('three/addons/renderers/CSS3DRenderer.js');
+            const { RoundedBoxGeometry } = await import('three/addons/geometries/RoundedBoxGeometry.js');
+            window.__resolveThree({ THREE, CSS3DRenderer, CSS3DObject, RoundedBoxGeometry });
+        } catch (err) {
+            console.warn('Could not load three.js', err);
+            window.__resolveThree(null);
+        }
+    </script>
+</body>
+</html>
