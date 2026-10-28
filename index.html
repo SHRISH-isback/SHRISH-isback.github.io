@@ -244,17 +244,18 @@
                 <!-- Project 5 -->
                 <div class="project-card">
                     <div class="project-header">
-                        <h3 class="project-title">PhishGuard - Phishing URL Detector</h3>
+                        <h3 class="project-title">Type-Aware Failure Prediction for Chart Reasoning in VLMs</h3>
                         <div class="project-tags">
-                            <span class="project-tag">Web Application</span>
-                            <span class="project-tag">Machine Learning</span>
-                            <span class="project-tag">Security</span>
+                            <span class="project-tag">Vision-Language Models</span>
+                            <span class="project-tag">Linear Probes</span>
+                            <span class="project-tag">Interpretability</span>
+                            <span class="project-tag">ChartQA</span>
                         </div>
                     </div>
                     <div class="project-body">
-                        <p class="project-problem"><strong>Problem:</strong> Phishing attacks are a major threat to online security, targeting users with deceptive URLs.</p>
-                        <p class="project-solution"><strong>Solution:</strong> PhishGuard is a modern web application that uses machine learning to detect phishing URLs in real-time, providing users with instant feedback and protection.</p>
-                        <p class="project-impact"><strong>Impact:</strong> Enhances user safety by proactively identifying and blocking phishing attempts, reducing the risk of credential theft and financial loss.</p>
+                        <p class="project-problem"><strong>Problem:</strong> Vision-language models can fail on charts in two mechanically different ways, misreading the figure or fabricating a value. It is unclear whether that difference is visible in the model's internal state before it generates, and whether knowing it is worth anything.</p>
+                        <p class="project-solution"><strong>Solution:</strong> With a team of four for Advanced NLP, studied two frozen models (Qwen2.5-VL-7B and LLaVA-NeXT-7B) on ChartQA and three synthetic bar-chart pilots. Trained linear probes on cached activations to predict errors and their type, then ran a repair experiment and built a type-aware controller compared against selective prediction. Everything runs as reproducible SLURM jobs on pinned library versions.</p>
+                        <p class="project-impact"><strong>Impact:</strong> Tests whether predicting how a chart-reasoning model will fail, not just whether it will, can drive better repair and abstention decisions.</p>
                     </div>
                 </div>
 
@@ -272,6 +273,24 @@
                         <p class="project-problem"><strong>Problem:</strong> Standard shells can be complex and lack customization for specific workflows and educational purposes.</p>
                         <p class="project-solution"><strong>Solution:</strong> Built a custom shell supporting job control, piping, redirection, and built-in commands. Focused on modular design and robust error handling.</p>
                         <p class="project-impact"><strong>Impact:</strong> Provided a deeper understanding of process management and user interaction in Unix-like systems, enabling tailored command-line experiences.</p>
+                    </div>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Seq2Seq Transformers from Scratch &amp; Byte Latent Transformer</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">PyTorch</span>
+                            <span class="project-tag">Transformers</span>
+                            <span class="project-tag">NLP</span>
+                            <span class="project-tag">BLT</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-problem"><strong>Problem:</strong> How much do core architectural choices (positional encoding, attention, normalization, tokenization) affect a sequence-to-sequence model's accuracy and efficiency? Tested on translating encrypted 512-bit cipher strings into English plaintext.</p>
+                        <p class="project-solution"><strong>Solution:</strong> Implemented the Transformer, a BPE tokenizer and the evaluation pipeline from scratch in PyTorch, with no <code>nn.Transformer</code> or prebuilt tokenizers. Ran a controlled ablation of one change at a time: RoPE, Grouped-Query Attention, RMSNorm and a token-free Byte Latent Transformer.</p>
+                        <p class="project-impact"><strong>Impact:</strong> The byte-level BLT reached 100% sequence accuracy in about half the training time, versus 41-43% for the subword variants. GQA cut parameters from 10.00M to 8.82M with little accuracy loss.</p>
                     </div>
                 </div>
             </div>

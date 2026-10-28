@@ -129,7 +129,7 @@ function renderAbout(body) {
     body.innerHTML = `
         <div class="about">
             <figure class="about-photo" style="margin:0">
-                <img src="Profilepicture.png" alt="Portrait of Shrish Kiran Kadam">
+                <img src="../../Profilepicture.png" alt="Portrait of Shrish Kiran Kadam">
                 <figcaption>photo.bmp</figcaption>
             </figure>
             <div class="term" tabindex="0" role="region" aria-label="About me terminal. Click to skip the typing animation.">
